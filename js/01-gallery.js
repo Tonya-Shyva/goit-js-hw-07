@@ -21,3 +21,27 @@ const createGalleryMarkup = galleryItems
   .join("");
 
 galleryRef.insertAdjacentHTML("afterbegin", createGalleryMarkup);
+
+galleryRef.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (e.target.nodeName !== "IMG") {
+    return;
+  }
+
+  const selectedImage = e.target.getAttribute("data-source");
+
+  const instance = basicLightbox.create(`
+    <img src="${selectedImage}" width = "1280" height = "854">
+`);
+
+  instance.show();
+  console.log(instance);
+
+  galleryRef.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      instance.close();
+    }
+  });
+});
+
+galleryRef.removeEventListener("click", () => {});
