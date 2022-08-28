@@ -35,7 +35,6 @@ galleryRef.addEventListener("click", (e) => {
 `);
 
   instance.show();
-  console.log(instance);
 
   galleryRef.addEventListener("keydown", (e) => {
     if (e.code === "Escape") {
