@@ -42,5 +42,3 @@ galleryRef.addEventListener("click", (e) => {
     }
   });
 });
-
-galleryRef.removeEventListener("click", () => {});
