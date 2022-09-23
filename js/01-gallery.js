@@ -22,7 +22,9 @@ const createGalleryMarkup = galleryItems
 
 galleryRef.insertAdjacentHTML("afterbegin", createGalleryMarkup);
 
-galleryRef.addEventListener("click", (e) => {
+galleryRef.addEventListener("click", onGaleryItemClick);
+
+function onGaleryItemClick(e) {
   e.preventDefault();
   if (e.target.nodeName !== "IMG") {
     return;
@@ -36,9 +38,11 @@ galleryRef.addEventListener("click", (e) => {
 
   instance.show();
 
-  galleryRef.addEventListener("keydown", (e) => {
+  galleryRef.addEventListener("keydown", onEscPress);
+
+  function onEscPress(e) {
     if (e.code === "Escape") {
       instance.close();
     }
-  });
-});
+  }
+}
