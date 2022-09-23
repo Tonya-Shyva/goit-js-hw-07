@@ -44,5 +44,6 @@ function onGaleryItemClick(e) {
     if (e.code === "Escape") {
       instance.close();
     }
+    galleryRef.removeEventListener("keydown", onEscPress);
   }
 }
